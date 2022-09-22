@@ -1,0 +1,20 @@
+﻿@model AppointmentList
+<h1>Zarejestrowane wizyty</h1>
+<form asp-action="DeleteAppointment" asp-controller="Appointment">
+    @foreach (Appointment app in Model.appointments)
+    {
+        <h2>Imię: @app.Name</h2>
+        <h2>Nazwisko: @app.Surname</h2>
+        <h2>Numer telefonu: @app.PhoneNumber</h2>
+        <input type="hidden" value="@app.Number" name="ID" />
+        <input type="hidden" value="@app.Name" name="Name" />
+        <input type="hidden" value="@app.Surname" name="Surname" />
+        <input type="hidden" value="@app.PhoneNumber" name="Phone" />
+        <input type="submit" value="Usuń" />
+        <br />
+    }
+</form>
+
+<br />
+<a href="/Appointment/Index">Powrót</a>
+

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rejestracja wizyty</h1>
+<form asp-controller="Appointment" asp-action="FromForm" method="post">
+    Imię:
+    <input type="text" name="Name" id="Name"/><br />
+    Nazwisko:
+    <input type="text" name="Surname" id="Surname"/><br />
+    Numer telefonu:
+    <input type="text" name="Phone" id="Phone"/><br />
+    <button type="submit">Zarejestruj</button>
+</form>
+<button><a href="FromForm">Lista wizyt</a></button>
