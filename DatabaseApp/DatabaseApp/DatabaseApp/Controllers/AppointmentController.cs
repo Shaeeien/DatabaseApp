@@ -37,7 +37,7 @@ namespace DatabaseApp.Controllers
             return View(appointmentList);
         }
 
-        //O CHUJ TU CHODZI
+        //Usuwa zawsze ostatnią dodaną(albo pierwszą)
         [HttpPost]
         public IActionResult DeleteAppointment(string ID)
         {
