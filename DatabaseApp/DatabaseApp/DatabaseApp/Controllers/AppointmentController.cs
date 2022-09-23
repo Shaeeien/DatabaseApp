@@ -43,7 +43,7 @@ namespace DatabaseApp.Controllers
         {
             Appointment appointment = appointmentList.appointments.SingleOrDefault(x => x.Number == int.Parse(ID));
             appointmentList.appointments.Remove(appointment);
-            return View(appointmentList);
+            return View("FromForm", appointmentList);
         }
 
         public IActionResult Error()
