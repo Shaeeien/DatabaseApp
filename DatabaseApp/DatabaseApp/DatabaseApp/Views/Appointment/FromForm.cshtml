@@ -1,7 +1,7 @@
-﻿@model AppointmentList
+﻿@model List<Appointment>
 <h1>Zarejestrowane wizyty</h1>
 <form asp-action="DeleteAppointment" asp-controller="Appointment">
-    @foreach (Appointment app in Model.appointments)
+    @foreach (Appointment app in Model)
     {
         <h2>Imię: @app.Name</h2>
         <h2>Nazwisko: @app.Surname</h2>
