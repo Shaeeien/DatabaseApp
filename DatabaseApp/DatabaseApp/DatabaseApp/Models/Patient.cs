@@ -5,13 +5,9 @@ using System.Threading.Tasks;
 
 namespace DatabaseApp.Models
 {
-    public class Appointment
+    public class Patient : Person
     {
-        public Patient AppointingPerson { get; set; }
-        public Doctor Doctor { get; set; }
         public int ID { get; set; }
-        public DateTime Time { get; set; }
-
-        
+        public Doctor Doctor_data { get; set; }
     }
 }

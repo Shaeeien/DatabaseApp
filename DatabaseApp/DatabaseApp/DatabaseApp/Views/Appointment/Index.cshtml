@@ -4,13 +4,11 @@
 }
 
 <h1>Rejestracja wizyty</h1>
-<form asp-controller="Appointment" asp-action="FromForm" method="post">
-    Imię:
+<form asp-controller="Appointment" asp-action="AppointmentList" method="post">
+@*    Login:
     <input type="text" name="Name" id="Name"/><br />
-    Nazwisko:
-    <input type="text" name="Surname" id="Surname"/><br />
-    Numer telefonu:
-    <input type="text" name="Phone" id="Phone"/><br />
-    <button type="submit">Zarejestruj</button>
+    Hasło:
+    <input type="password" name="Surname" id="Surname"/><br />*@
+    <button type="submit">Zaloguj</button>
 </form>
-<button><a href="FromForm">Lista wizyt</a></button>
+<button><a href="AppointmentList">Lista wizyt</a></button>

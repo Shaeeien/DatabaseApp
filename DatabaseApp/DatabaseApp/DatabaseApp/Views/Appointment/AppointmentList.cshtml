@@ -1,0 +1,51 @@
+﻿@model List<Appointment>
+<h1>Zarejestrowane wizyty</h1>
+<form asp-action="DeleteAppointment" asp-controller="Appointment">
+    <table border="solid 2px">
+        <tr>
+            <td>
+                Imię  pacjenta:
+            </td>
+            <td>
+                Nazwisko pacjenta:
+            </td>
+            <td>
+                Imię lekarza:
+            </td>
+            <td>
+                Nazwisko lekarza:
+            </td>
+            <td>
+                Termin:
+            </td>
+        </tr>
+        @foreach (Appointment app in Model)
+        {
+            <tr>
+                <td>
+                    @app.AppointingPerson.Name
+                </td>
+                <td>
+                    @app.AppointingPerson.Surname
+                </td>
+                <td>
+                    @app.AppointingPerson.Doctor_data.Name
+                </td>
+                <td>
+                    @app.AppointingPerson.Doctor_data.Surname
+                </td>
+                <td>
+                    @app.Time
+                </td>
+                <td>
+                    <input type="submit" value="Usuń" />
+                </td>
+            </tr>                  
+        }
+    </table>
+    
+</form>
+
+<br />
+<a href="/Appointment/Index">Powrót</a>
+

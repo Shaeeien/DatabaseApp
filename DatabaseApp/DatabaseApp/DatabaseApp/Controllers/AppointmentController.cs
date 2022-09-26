@@ -8,7 +8,7 @@ namespace DatabaseApp.Controllers
 {
     public class AppointmentController : Controller
     {
-        SqlConnection connection = new SqlConnection("Data Source=(localdb)\\Appointments;Initial Catalog=Appointments;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-EII9684;Initial Catalog=Appointments;Integrated Security=True");
 
         private static int appointmentNumber = -1;
         public IActionResult Index()
@@ -17,7 +17,7 @@ namespace DatabaseApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult FromForm(string name, string surname, string phone)
+        public IActionResult AppointmentList(string name, string surname, string phone)
         {
             if(name != null && surname != null && phone != null)
             {
@@ -30,31 +30,41 @@ namespace DatabaseApp.Controllers
                 appointmentNumber++;
             }
             
-            return View("FromForm");
+            return View("AppointmentList");
         }
 
-        public IActionResult FromForm()
+        public IActionResult AppointmentList()
         {
-            string command = "SELECT * FROM Appointments";
+            string command = "select a.ID as AID, p.ID as PID, p.Name as PatientName, p.Surname as PatientSurname, d.ID as DID, d.Name as DoctorName, d.Surname as DoctorSurname, a.AppDate as AppointmentDate from Patient p, Doctor d, Appointments a where p.ID = a.Patient and d.ID = a.Doctor";
             connection.Open();
             SqlCommand query = new SqlCommand(command, connection);
             SqlDataReader reader = query.ExecuteReader();
             List<Appointment> appointments = new List<Appointment>();
             while (reader.Read())
             {
-                Appointment appointment = new Appointment()
+                Appointment app = new Appointment
                 {
-                    Number = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Surname = reader.GetString(2),
-                    PhoneNumber = reader.GetString(3)                    
+                    ID = reader.GetInt32(0),
+                    AppointingPerson = new Patient
+                    {
+                        Name = reader.GetString(2),
+                        Surname = reader.GetString(3),
+                        ID = reader.GetInt32(1),
+                        Doctor_data = new Doctor
+                        {
+                            ID = reader.GetInt32(4),
+                            Name = reader.GetString(5),
+                            Surname = reader.GetString(6)
+                        }
+                    },
+                    Time = reader.GetDateTime(7)
                 };
-                appointments.Add(appointment);
+                appointments.Add(app);
             }
+            connection.Close();
             return View(appointments);
         }
 
-        //Usuwa zawsze ostatnią dodaną(albo pierwszą)
         [HttpPost]
         public IActionResult DeleteAppointment(string ID)
         {
@@ -62,7 +72,7 @@ namespace DatabaseApp.Controllers
             connection.Open();
             SqlCommand query = new SqlCommand(command, connection);
             int result = query.ExecuteNonQuery();
-            string command1 = "SELECT * FROM Appointments";
+            string command1 = "select p.Name as PatientName, p.Surname as PatientSurname, d.Name as DoctorName, d.Surname as DoctorSurname, a.AppDate as AppointmentDate from Patient p, Doctor d, Appointments a where p.ID = a.Patient and d.ID = a.Doctor";
             SqlCommand query1 = new SqlCommand(command1, connection);
             SqlDataReader reader = query.ExecuteReader();
             List<Appointment> appointments = new List<Appointment>();
@@ -70,10 +80,10 @@ namespace DatabaseApp.Controllers
             {
                 Appointment appointment = new Appointment()
                 {
-                    Number = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Surname = reader.GetString(2),
-                    PhoneNumber = reader.GetString(3)
+                    //Number = reader.GetInt32(0),
+                    //Name = reader.GetString(1),
+                    //Surname = reader.GetString(2),
+                    //PhoneNumber = reader.GetString(3)
                 };
                 appointments.Add(appointment);
             }
