@@ -241,7 +241,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Runtime.Serialization.Json.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Runtime.Serialization.Primitives.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Runtime.Serialization.Xml.dll
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.AccessControl.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Claims.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Cryptography.Algorithms.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Cryptography.Cng.dll
@@ -251,7 +250,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Cryptography.X509Certificates.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Cryptography.Xml.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.dll
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Permissions.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Principal.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.Principal.Windows.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Security.SecureString.dll
@@ -279,7 +277,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Web.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Web.HttpUtility.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Windows.dll
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Windows.Extensions.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Xml.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Xml.Linq.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Xml.ReaderWriter.dll
@@ -438,3 +435,19 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Appointment\AppointmentList.cshtml.g.cs
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.Win32.SystemEvents.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\System.Drawing.Common.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\System.Security.AccessControl.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\System.Security.Permissions.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\System.Windows.Extensions.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.AccessControl.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\RegistrationError.cshtml.g.cs
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\RegistrationSuccess.cshtml.g.cs
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\app.config
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\DatabaseApp.dll.config
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\AccountExists.cshtml.g.cs
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\LoginError.cshtml.g.cs

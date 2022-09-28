@@ -3,12 +3,13 @@ using System.Linq;
 using System.Collections.Generic;
 using DatabaseApp.Models;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DatabaseApp.Controllers
 {
     public class AppointmentController : Controller
     {
-        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-EII9684;Initial Catalog=Appointments;Integrated Security=True");
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString);
 
         private static int appointmentNumber = -1;
         public IActionResult Index()
