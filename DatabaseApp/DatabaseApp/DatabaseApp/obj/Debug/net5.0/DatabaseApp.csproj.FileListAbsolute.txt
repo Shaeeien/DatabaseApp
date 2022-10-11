@@ -5,7 +5,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\DatabaseApp.runtimeconfig.json
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\DatabaseApp.runtimeconfig.dev.json
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\DatabaseApp.dll
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\ref\DatabaseApp.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\DatabaseApp.pdb
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -99,7 +98,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.Xml.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -157,7 +155,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Data.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Diagnostics.Contracts.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Diagnostics.Debug.dll
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Diagnostics.DiagnosticSource.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Diagnostics.EventLog.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Diagnostics.FileVersionInfo.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\refs\System.Diagnostics.Process.dll
@@ -332,7 +329,6 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\DatabaseApp.RazorAssemblyInfo.cache
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\DatabaseApp.RazorAssemblyInfo.cs
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\staticwebassets\DatabaseApp.StaticWebAssets.Manifest.cache
-E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\staticwebassets\DatabaseApp.StaticWebAssets.xml
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\scopedcss\bundle\DatabaseApp.styles.css
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\DatabaseApp.TagHelpers.input.cache
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\DatabaseApp.TagHelpers.output.cache
@@ -451,3 +447,13 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\DatabaseApp.dll.config
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\AccountExists.cshtml.g.cs
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Account\LoginError.cshtml.g.cs
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\DatabaseApp.dll.config
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\ref\DatabaseApp.dll
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\staticwebassets\DatabaseApp.StaticWebAssets.xml

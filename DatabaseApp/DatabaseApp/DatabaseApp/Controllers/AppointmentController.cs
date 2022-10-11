@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
-using DatabaseApp.Models;
+using DatabaseApp.Entities;
 using System.Data.SqlClient;
 using System.Configuration;
+using DatabaseApp.Models;
+using System;
 
 namespace DatabaseApp.Controllers
 {
@@ -18,52 +20,31 @@ namespace DatabaseApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult AppointmentList(string name, string surname, string phone)
-        {
-            if(name != null && surname != null && phone != null)
+        public IActionResult AppointmentList(int id)
+        {             
+            using(var DbCtx = new AppointmentContext())
             {
-                connection.Open();
-                string command = string.Format(
-                    "INSERT INTO Appointments(ID, Name, Surname, Phone_number) VALUES({0}, '{1}', '{2}', '{3}')", appointmentNumber, name, surname, phone);
-                SqlCommand query = new SqlCommand(command, connection);
-                int result = query.ExecuteNonQuery();
-                connection.Close();
+                Appointment app = new Appointment
+                {
+                    //AppointmentId = appointmentNumber,
+                    //Doctor = DbCtx.Doctors.Find(doctorId),
+                    //DoctorId = doctorId,
+                    //Patient = DbCtx.Patients.Find(patientId),
+                    //PatientId = patientId,
+                    //Time = appTime
+                };
+                DbCtx.Appointments.Add(app);
+                DbCtx.SaveChanges();
                 appointmentNumber++;
-            }
-            
-            return View("AppointmentList");
+            };
+
+            return View();
         }
 
         public IActionResult AppointmentList()
         {
-            string command = "select a.ID as AID, p.ID as PID, p.Name as PatientName, p.Surname as PatientSurname, d.ID as DID, d.Name as DoctorName, d.Surname as DoctorSurname, a.AppDate as AppointmentDate from Patient p, Doctor d, Appointments a where p.ID = a.Patient and d.ID = a.Doctor";
-            connection.Open();
-            SqlCommand query = new SqlCommand(command, connection);
-            SqlDataReader reader = query.ExecuteReader();
-            List<Appointment> appointments = new List<Appointment>();
-            while (reader.Read())
-            {
-                Appointment app = new Appointment
-                {
-                    ID = reader.GetInt32(0),
-                    AppointingPerson = new Patient
-                    {
-                        Name = reader.GetString(2),
-                        Surname = reader.GetString(3),
-                        ID = reader.GetInt32(1),
-                        Doctor_data = new Doctor
-                        {
-                            ID = reader.GetInt32(4),
-                            Name = reader.GetString(5),
-                            Surname = reader.GetString(6)
-                        }
-                    },
-                    Time = reader.GetDateTime(7)
-                };
-                appointments.Add(app);
-            }
-            connection.Close();
-            return View(appointments);
+                        
+            return View();
         }
 
         [HttpPost]

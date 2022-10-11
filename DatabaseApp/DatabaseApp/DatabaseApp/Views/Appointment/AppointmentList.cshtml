@@ -1,4 +1,6 @@
-﻿@model List<Appointment>
+﻿@using DatabaseApp.Entities 
+@using Microsoft.EntityFrameworkCore
+
 <h1>Zarejestrowane wizyty</h1>
 <form asp-action="DeleteAppointment" asp-controller="Appointment">
     <table "border: 2px solid">
@@ -19,28 +21,16 @@
                 Termin:
             </td>
         </tr>
-        @foreach (Appointment app in Model)
+        @using(var DbContext = new AppointmentContext())
         {
-            <tr>
-                <td>
-                    @app.AppointingPerson.Name
-                </td>
-                <td>
-                    @app.AppointingPerson.Surname
-                </td>
-                <td>
-                    @app.AppointingPerson.Doctor_data.Name
-                </td>
-                <td>
-                    @app.AppointingPerson.Doctor_data.Surname
-                </td>
-                <td>
-                    @app.Time
-                </td>
-                <td>
-                    <input type="submit" value="Usuń" />
-                </td>
-            </tr>                  
+            @foreach(Appointment app in DbContext.Appointments)
+             {
+                <tr>@app.Patient.Name</tr>
+                <tr>@app.Patient.Surname</tr>
+                <tr>@app.Doctor.Name</tr>
+                <tr>@app.Doctor.Surname</tr>
+                <tr>@app.Time</tr>
+             }                    
         }
     </table>
     

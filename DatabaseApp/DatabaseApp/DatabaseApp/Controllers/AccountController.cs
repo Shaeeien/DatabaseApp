@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using DatabaseApp.Entities;
 
 namespace DatabaseApp.Controllers
 {
@@ -18,44 +20,48 @@ namespace DatabaseApp.Controllers
 
         public IActionResult Login(string login, string password)
         {
-            connection.Open();
-            string query = string.Format("SELECT AccountType FROM Accounts WHERE Login='{0}' AND Password='{1}'", login, password);
-            SqlCommand cmd = new SqlCommand(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            int result = -1;
-            if (reader.Read())
+            using(var DbCtx = new AppointmentContext())
             {
-                result = reader.GetInt32(0);
-                connection.Close();
-                return View();
-            }                
-            connection.Close();
-            return View("LoginError", result);
+                bool user = DbCtx.AppUsers.Where(x => x.Login == login && x.Password == password).Any();
+                if(!user)
+                {
+                    return View("LoginError");
+                }
+                else
+                {
+                    return View();
+                }
+
+            }
         }
         //DODAĆ TRY CATCH WSZĘDZIE
         public IActionResult Register(string login, string password, string repeatedPassword)
         {
             if(login != null && password != null)
             {
-                if (CheckIfAccountExists(login))
-                {
-                    return View("AccountExists");
-                }
-                else if (password != repeatedPassword)
+                if (password != repeatedPassword)
                 {
                     return View("SamePassword");
                 }
                 else
                 {
-                    connection.Open();
-                    string query = string.Format("INSERT INTO Accounts(ID, AccountType, Login, Password) VALUES(NEXT VALUE FOR accounts_number, 0, '{0}', '{1}')", login, password);
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    connection.Close();
-                    if (result > 0)
-                        return View("RegistrationSuccess");
-                    else
-                        return View("RegistrationError");
+                    using(var DbCtx = new AppointmentContext())
+                    {
+                        bool exists = (from appuser in DbCtx.AppUsers where appuser.Login == login select appuser).Any();
+                        if (!exists)
+                        {
+                            AppUser u = new AppUser()
+                            {
+                                Login = login,
+                                Password = password,
+                                AccountType = 0
+                            };
+                            DbCtx.Add(u);
+                            DbCtx.SaveChanges();
+                            return View("RegistrationSuccess");
+                        }                            
+                    }
+                    return View("RegistrationError");
                 }
             }
             else
@@ -67,18 +73,6 @@ namespace DatabaseApp.Controllers
         public IActionResult RegisterPage()
         {
             return View("Register");
-        }
-
-        private bool CheckIfAccountExists(string login)
-        {
-            connection.Open();
-            string query = string.Format("SELECT * FROM Accounts WHERE Login = '{0}'", login);
-            SqlCommand cmd = new SqlCommand(query, connection);
-            int result = cmd.ExecuteNonQuery();
-            connection.Close();
-            if(result > 0)
-                return true;
-            return false;
         }
     }
 }
