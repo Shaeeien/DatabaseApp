@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using DatabaseApp.Entities;
 
 namespace DatabaseApp.Controllers
 {
     public class AccountController : Controller
     {
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString);
-
         public IActionResult Index()
         {
             return View();
@@ -29,11 +27,22 @@ namespace DatabaseApp.Controllers
                 }
                 else
                 {
+                    HttpContext.Session.SetString("Login", login);
                     return View();
                 }
 
             }
         }
+
+        public IActionResult LoggedIn()
+        {
+            if(HttpContext.Session.GetString("Login") == null)
+            {
+                return View("Index");
+            }
+            return View();
+        }
+
         //DODAĆ TRY CATCH WSZĘDZIE
         public IActionResult Register(string login, string password, string repeatedPassword)
         {

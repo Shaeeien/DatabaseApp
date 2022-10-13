@@ -6,39 +6,31 @@ using System.Data.SqlClient;
 using System.Configuration;
 using DatabaseApp.Models;
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace DatabaseApp.Controllers
 {
     public class AppointmentController : Controller
     {
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString);
-
-        private static int appointmentNumber = -1;
         public IActionResult Index()
         {
            return View();
         }
+        
 
-        [HttpPost]
-        public IActionResult AppointmentList(int id)
+        public IActionResult AppointmentSearch(int id)
         {             
             using(var DbCtx = new AppointmentContext())
             {
-                Appointment app = new Appointment
+                Appointment app = DbCtx.Appointments.Where(x => x.AppointmentId == id).FirstOrDefault();
+                if(app != null)
                 {
-                    //AppointmentId = appointmentNumber,
-                    //Doctor = DbCtx.Doctors.Find(doctorId),
-                    //DoctorId = doctorId,
-                    //Patient = DbCtx.Patients.Find(patientId),
-                    //PatientId = patientId,
-                    //Time = appTime
-                };
-                DbCtx.Appointments.Add(app);
-                DbCtx.SaveChanges();
-                appointmentNumber++;
+                    return View("AppointmentSingle", id);
+                }
+                
             };
-
-            return View();
+            return View("Error", "Nie ma takiej wizyty!");
+            
         }
 
         public IActionResult AppointmentList()
@@ -48,28 +40,52 @@ namespace DatabaseApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteAppointment(string ID)
+        public IActionResult DeleteAppointment(int ID)
         {
-            string command = string.Format("DELETE FROM Appointments WHERE ID = {0}", ID);
-            connection.Open();
-            SqlCommand query = new SqlCommand(command, connection);
-            int result = query.ExecuteNonQuery();
-            string command1 = "select p.Name as PatientName, p.Surname as PatientSurname, d.Name as DoctorName, d.Surname as DoctorSurname, a.AppDate as AppointmentDate from Patient p, Doctor d, Appointments a where p.ID = a.Patient and d.ID = a.Doctor";
-            SqlCommand query1 = new SqlCommand(command1, connection);
-            SqlDataReader reader = query.ExecuteReader();
-            List<Appointment> appointments = new List<Appointment>();
-            while (reader.Read())
+            using(var DbCtx = new AppointmentContext())
             {
-                Appointment appointment = new Appointment()
+                Appointment toRemove = DbCtx.Appointments.Where(x => x.AppointmentId == ID).FirstOrDefault();
+                if(toRemove != null)
                 {
-                    //Number = reader.GetInt32(0),
-                    //Name = reader.GetString(1),
-                    //Surname = reader.GetString(2),
-                    //PhoneNumber = reader.GetString(3)
-                };
-                appointments.Add(appointment);
+                    DbCtx.Appointments.Remove(toRemove);
+                    DbCtx.SaveChanges();
+                }
+                else
+                {
+                    return View("Error", "Błąd usuwania");
+                }
+                    
             }
-            return View("FromForm", appointments);
+            return View("AppointmentList");
+        }
+
+        public IActionResult AddAppointment(string doctor, DateTime appDate, DateTime appTime)
+        {
+            int id = int.Parse(doctor[0].ToString());
+            Appointment app = new Appointment
+            {
+                PatientId = 1,
+                DoctorId = id,
+                Time = new DateTime(appDate.Year, appDate.Month, appDate.Day, appTime.Hour, appTime.Minute, appTime.Second)
+            };
+            using(var DbCtx = new AppointmentContext())
+            {
+                bool exists = (from appointment in DbCtx.Appointments
+                               where appointment.DoctorId == app.DoctorId && appointment.PatientId == app.PatientId && appointment.Time == app.Time
+                               select appointment).Any();
+                if (exists)
+                {
+                    return View("Error", "Taka wizyta jest już umówiona!");
+                }
+                DbCtx.Appointments.Add(app);
+                DbCtx.SaveChanges();
+                return View("AppointmentList");                
+            }
+        }
+
+        public IActionResult RegisterAppointment()
+        {
+            return View("AddAppointment");
         }
 
         public IActionResult Error()

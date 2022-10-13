@@ -1,9 +1,10 @@
 ﻿@using DatabaseApp.Entities 
 @using Microsoft.EntityFrameworkCore
+@using System.Linq
 
 <h1>Zarejestrowane wizyty</h1>
 <form asp-action="DeleteAppointment" asp-controller="Appointment">
-    <table "border: 2px solid">
+    <table style="border: 2px solid black">
         <tr>
             <td>
                 Imię  pacjenta:
@@ -20,20 +21,29 @@
             <td>
                 Termin:
             </td>
+            
         </tr>
-        @using(var DbContext = new AppointmentContext())
-        {
-            @foreach(Appointment app in DbContext.Appointments)
-             {
-                <tr>@app.Patient.Name</tr>
-                <tr>@app.Patient.Surname</tr>
-                <tr>@app.Doctor.Name</tr>
-                <tr>@app.Doctor.Surname</tr>
-                <tr>@app.Time</tr>
-             }                    
-        }
-    </table>
-    
+            @using (var DbContext = new AppointmentContext())
+            {
+                @foreach (Appointment app in DbContext.Appointments)
+                {
+                    <tr>
+                        <td><input name="ID" type="text" value="@app.AppointmentId" /></td>
+                        <td>@DbContext.Patients.Where(x => x.Id == app.PatientId).FirstOrDefault().Name</td>
+                        <td>@DbContext.Patients.Where(x => x.Id == app.PatientId).FirstOrDefault().Surname</td>
+                        <td>@DbContext.Doctors.Where(x => x.Id == app.DoctorId).FirstOrDefault().Name</td>
+                        <td>@DbContext.Doctors.Where(x => x.Id == app.DoctorId).FirstOrDefault().Surname</td>
+                        <td>@app.Time</td>
+                        <td>
+                            <button type="submit">Usuń</button>
+                        </td>
+                    </tr>
+                }
+            }
+            
+
+        </table>
+
 </form>
 
 <br />

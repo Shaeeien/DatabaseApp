@@ -1,0 +1,49 @@
+﻿@model int
+@using DatabaseApp.Entities
+@using Microsoft.EntityFrameworkCore
+@using System.Linq
+
+<form asp-action="DeleteAppointment" asp-controller="Appointment">
+    @using (var DbContext = new AppointmentContext())
+    {
+        Appointment app = DbContext.Appointments.Where(x => x.AppointmentId == Model).FirstOrDefault();
+        if (app != null)
+        {
+            <table style="border: 2px solid black">
+                <tr>
+                    <td>
+                        Imię  pacjenta:
+                    </td>
+                    <td>
+                        Nazwisko pacjenta:
+                    </td>
+                    <td>
+                        Imię lekarza:
+                    </td>
+                    <td>
+                        Nazwisko lekarza:
+                    </td>
+                    <td>
+                        Termin:
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td><input name="ID" type="text" value="@app.AppointmentId" /></td>
+                    <td>@DbContext.Patients.Where(x => x.Id == app.PatientId).FirstOrDefault().Name</td>
+                    <td>@DbContext.Patients.Where(x => x.Id == app.PatientId).FirstOrDefault().Surname</td>
+                    <td>@DbContext.Doctors.Where(x => x.Id == app.DoctorId).FirstOrDefault().Name</td>
+                    <td>@DbContext.Doctors.Where(x => x.Id == app.DoctorId).FirstOrDefault().Surname</td>
+                    <td>@app.Time</td>
+                    <td>
+                        <button type="submit">Usuń</button>
+                    </td>
+                </tr>
+            }
+            </table>
+        }
+    }
+
+</form>
+

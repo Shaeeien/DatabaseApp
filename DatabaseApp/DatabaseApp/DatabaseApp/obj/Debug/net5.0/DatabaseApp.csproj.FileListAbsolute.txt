@@ -457,3 +457,5 @@ E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\bin\Debug\net5.0\ref\DatabaseApp.dll
 E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\staticwebassets\DatabaseApp.StaticWebAssets.xml
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Appointment\AddAppointment.cshtml.g.cs
+E:\dotNETProjekty\DatabaseApp\DatabaseApp\DatabaseApp\DatabaseApp\obj\Debug\net5.0\Razor\Views\Appointment\AppointmentSingle.cshtml.g.cs

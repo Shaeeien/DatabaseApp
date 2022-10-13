@@ -18,7 +18,7 @@ namespace DatabaseApp.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = DESKTOP-EII9684; Database = Appointments; Trusted_Connection = true; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source = DESKTOP-EII9684; Database = Appointments; Trusted_Connection = true; TrustServerCertificate=True; MultipleActiveResultSets=true");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -1,0 +1,21 @@
+﻿@using DatabaseApp.Entities
+@using DatabaseApp.ViewModels
+
+<form asp-controller="Appointment" asp-action="AddAppointment" method="post">
+    <p>Proszę wybrać lekarza</p>
+    <select name="Doctor">
+        @using(var DbCtx = new AppointmentContext())
+         {
+            foreach(Doctor d in DbCtx.Doctors)
+            {
+                <option>
+                    @d.Id . @d.Name @d.Surname 
+                </option>
+            }
+         }
+    </select>
+    <p>Proszę wybrać datę</p>
+    <input type="date" name="AppDate" />
+    <input type="time" name="AppTime"/>
+    <button type="submit">Dodaj wizytę</button>
+</form>
