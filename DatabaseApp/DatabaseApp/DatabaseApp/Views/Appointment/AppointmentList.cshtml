@@ -3,7 +3,7 @@
 @using System.Linq
 
 <h1>Zarejestrowane wizyty</h1>
-<form asp-action="DeleteAppointment" asp-controller="Appointment">
+<form asp-controller="Appointment" method="post">
     <table style="border: 2px solid black">
         <tr>
             <td>
@@ -28,22 +28,34 @@
                 @foreach (Appointment app in DbContext.Appointments)
                 {
                     <tr>
-                        <td><input name="ID" type="text" value="@app.AppointmentId" /></td>
-                        <td>@DbContext.Patients.Where(x => x.Id == app.PatientId).FirstOrDefault().Name</td>
-                        <td>@DbContext.Patients.Where(x => x.Id == app.PatientId).FirstOrDefault().Surname</td>
-                        <td>@DbContext.Doctors.Where(x => x.Id == app.DoctorId).FirstOrDefault().Name</td>
-                        <td>@DbContext.Doctors.Where(x => x.Id == app.DoctorId).FirstOrDefault().Surname</td>
-                        <td>@app.Time</td>
                         <td>
-                            <button type="submit">Usuń</button>
+                            <input name="id" type="text" value="@app.AppointmentId" />
+                            @DbContext.Patients.Find(app.PatientId).Name
                         </td>
+                        <td>
+                            <input name="doctor" type="hidden" value="@app.DoctorId" />
+                            @DbContext.Patients.Find(app.PatientId).Surname
+                        </td>
+                        <td>
+                            <input type="hidden" name="patient" value="@app.PatientId"/>
+                            @DbContext.Doctors.Find(app.DoctorId).Name
+                        </td>
+                        <td>
+                            @DbContext.Doctors.Find(app.DoctorId).Surname
+                        </td>
+                        <td>
+                            <input name="appDate" type="hidden" value="@app.Time" />
+                            @app.Time
+                        </td>
+                        <td>
+                            <button type="submit" asp-action="RemoveAppointment">Usuń</button>
+                        </td>
+                        <td>
+                            <button type="submit" asp-action="FindAppointmentToUpdate">Modyfikuj</button>
                     </tr>
                 }
             }
-            
-
         </table>
-
 </form>
 
 <br />

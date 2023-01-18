@@ -16,8 +16,52 @@ namespace DatabaseApp.Controllers
         {
            return View();
         }
-        
+        /// <summary>
+        /// DO SPRAWDZENIA! NADAL COŚ NIE DZIAŁA!
+        /// </summary>
+        /// <param name="id">Numer wizyty do edycji</param>
+        /// <param name="doctor">Identyfikator doktora</param>
+        /// <param name="appDate">Data wizyty</param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult FindAppointmentToUpdate(int id)
+        {
+            using(var DbCtx = new AppointmentContext())
+            {
+                Appointment app = DbCtx.Appointments.Where(x => x.AppointmentId == id).Single();
+                //DbCtx.Appointments.Remove(app);
+                if(app != null)
+                {                    
+                    return View("UpdateAppointment", id);
+                }                                    
+            }
+            return View("Error", "Błąd aktualizacji!");
+        }
 
+        public IActionResult UpdateAppointment(int id, int doctor, int patient, DateTime appDate, DateTime appHour)
+        {
+            using(var DbCtx = new AppointmentContext())
+            {
+                Appointment app = DbCtx.Appointments.Where(x => x.AppointmentId == id).Single();
+                app.DoctorId = doctor;
+                app.Time = new DateTime(appDate.Year, appDate.Month, appDate.Day, appHour.Hour, appHour.Minute, appHour.Second);
+                //app.PatientId = 1;
+                DbCtx.SaveChanges();
+            }
+            
+            return View("AppointmentList");
+        }
+
+        //public IActionResult UpdateAppointment(int id)
+        //{
+
+        //}
+
+        /// <summary>
+        /// Wyszukiwanie wizyt po identyfikatorze
+        /// </summary>
+        /// <param name="id">Identyfikator wizyty</param>
+        /// <returns></returns>
         public IActionResult AppointmentSearch(int id)
         {             
             using(var DbCtx = new AppointmentContext())
@@ -40,11 +84,11 @@ namespace DatabaseApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteAppointment(int ID)
+        public IActionResult RemoveAppointment(int id)
         {
             using(var DbCtx = new AppointmentContext())
             {
-                Appointment toRemove = DbCtx.Appointments.Where(x => x.AppointmentId == ID).FirstOrDefault();
+                Appointment toRemove = DbCtx.Appointments.Where(x => x.AppointmentId == id).FirstOrDefault();
                 if(toRemove != null)
                 {
                     DbCtx.Appointments.Remove(toRemove);

@@ -1,0 +1,40 @@
+﻿@model int
+@using DatabaseApp.Entities
+
+@using (var DbCtx = new AppointmentContext())
+{
+    Appointment app = DbCtx.Appointments.Where(x => x.AppointmentId == Model).FirstOrDefault();
+    if (app != null)
+    {
+        <form asp-action="UpdateAppointment" asp-controller="Appointment" method="post">
+            <input type="text" name="ID" value="@app.AppointmentId" />
+            <input type="text" name="Patient" value="@app.PatientId" />
+            <select name="Doctor">
+                @foreach (Doctor d in DbCtx.Doctors)
+                {
+                    if (app.DoctorId == d.Id)
+                    {
+                        <option selected="selected" value="@d.Id">
+                            @d.Id . @d.Name @d.Surname
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@d.Id">
+                            @d.Id . @d.Name @d.Surname
+                        </option>
+
+                    }
+
+                }
+            </select>
+            <input type="date" name="AppDate" value="@Convert.ToDateTime(app.Time.Date).ToString("yyyy-MM-dd")" />
+            <input type="time" name="AppHour" value="@app.Time.TimeOfDay" />
+            <button type="submit">Zapisz zmiany</button>
+        </form>
+    }
+    else
+    {
+        <h1>NIE MA TAKIEJ WIZYTY</h1>
+    }
+}
